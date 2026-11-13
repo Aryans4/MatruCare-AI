@@ -1,0 +1,861 @@
+
+/* =========================================
+   1. GLOBAL STYLES
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+/* =========================================
+   2. COMMON FORM STYLES
+========================================= */
+
+.signup-container,
+.login-container,
+.otp-container,
+.contact-container {
+  min-height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.signup-form,
+.login-form,
+.otp-form,
+.contact-form {
+  width: 100%;
+  max-width: 450px;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 14px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.07);
+}
+
+.signup-form h2,
+.login-form h2,
+.otp-form h2,
+.contact-form h2 {
+  margin-bottom: 10px;
+  color: #172554;
+  font-size: 26px;
+}
+
+.signup-form p,
+.login-form p,
+.otp-form p,
+.contact-form p {
+  margin-bottom: 20px;
+  color: #64748b;
+}
+
+.signup-form input,
+.login-form input,
+.otp-form input,
+.contact-form input,
+.contact-form textarea {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font-size: 15px;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.signup-form input:focus,
+.login-form input:focus,
+.otp-form input:focus,
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #0d9488;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
+}
+
+.signup-form button,
+.login-form button,
+.otp-form button,
+.contact-form button {
+  width: 100%;
+  padding: 13px;
+  background: #0d9488;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.signup-form button:hover,
+.login-form button:hover,
+.otp-form button:hover,
+.contact-form button:hover {
+  background: #0f766e;
+}
+
+.signup-form button:disabled,
+.login-form button:disabled,
+.otp-form button:disabled,
+.contact-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+
+/* =========================================
+   3. NAVBAR
+========================================= */
+
+.navbar {
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  min-height: 75px;
+  margin: auto;
+  padding: 0 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-size: 25px;
+  font-weight: 800;
+  color: #0d9488;
+  letter-spacing: -0.5px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navbar-links a {
+  color: #334155;
+  font-size: 15px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: #0d9488;
+}
+
+.navbar-links button {
+  background: transparent;
+  border: none;
+  color: #334155;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.navbar-links button:hover {
+  color: #0d9488;
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #172554;
+  font-size: 27px;
+}
+
+
+/* =========================================
+   4. HOME PAGE
+========================================= */
+
+.home-page {
+  width: 100%;
+}
+
+.hero-section {
+  min-height: 480px;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #172554, #0f766e);
+  color: #ffffff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-section h1 {
+  max-width: 850px;
+  font-size: 48px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  max-width: 650px;
+  font-size: 18px;
+  color: #e2e8f0;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero-buttons a {
+  padding: 13px 27px;
+  border-radius: 7px;
+  font-weight: 700;
+  background: #ffffff;
+  color: #0f766e;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.hero-buttons a:hover {
+  transform: translateY(-3px);
+  background: #ccfbf1;
+}
+
+.hero-buttons a:last-child {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.hero-buttons a:last-child:hover {
+  background: #ffffff;
+  color: #0f766e;
+}
+
+.event-highlights,
+.about-section,
+.timeline-section,
+.prizes-section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 75px 25px;
+  text-align: center;
+}
+
+.event-highlights,
+.timeline-section,
+.prizes-section {
+  background: #ffffff;
+  border-radius: 12px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.home-page section h2 {
+  color: #172554;
+  font-size: 30px;
+  margin-bottom: 18px;
+}
+
+.home-page section p {
+  color: #64748b;
+  font-size: 16px;
+}
+
+
+/* =========================================
+   5. SIGNUP PAGE
+========================================= */
+
+.signup-container {
+  min-height: 75vh;
+}
+
+.signup-form {
+  max-width: 420px;
+}
+
+
+/* =========================================
+   6. LOGIN PAGE
+========================================= */
+
+.login-form {
+  max-width: 420px;
+}
+
+
+/* =========================================
+   7. OTP VERIFICATION PAGE
+========================================= */
+
+.otp-form {
+  max-width: 420px;
+}
+
+.otp-form button + button {
+  margin-top: 12px;
+}
+
+
+/* =========================================
+   8. DASHBOARD
+========================================= */
+
+.dashboard-container {
+  max-width: 1100px;
+  min-height: 70vh;
+  margin: auto;
+  padding: 45px 20px;
+}
+
+.dashboard-container h1 {
+  color: #172554;
+  margin-bottom: 25px;
+}
+
+.dashboard-card,
+.profile-card,
+.registration-card {
+  background: #ffffff;
+  padding: 25px;
+  margin-bottom: 22px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.dashboard-card h2,
+.profile-card h2,
+.registration-card h2 {
+  color: #172554;
+  margin-bottom: 15px;
+}
+
+.dashboard-card p,
+.profile-card p,
+.registration-card p {
+  margin: 10px 0;
+  color: #475569;
+}
+
+.dashboard-container button,
+.dashboard-container a {
+  display: inline-block;
+  padding: 12px 22px;
+  margin: 10px 10px 0 0;
+  border: none;
+  border-radius: 7px;
+  background: #0d9488;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.dashboard-container button:hover,
+.dashboard-container a:hover {
+  background: #0f766e;
+}
+
+
+/* =========================================
+   9. HACKATHON REGISTRATION
+========================================= */
+
+.registration-container {
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.registration-form {
+  width: 100%;
+  max-width: 700px;
+  padding: 35px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.registration-form h1 {
+  color: #172554;
+  margin-bottom: 10px;
+}
+
+.registration-form h3 {
+  margin: 28px 0 15px;
+  color: #0f766e;
+}
+
+.registration-form label {
+  display: block;
+  margin-bottom: 7px;
+  color: #334155;
+  font-weight: 600;
+}
+
+.registration-form input,
+.registration-form select,
+.registration-form textarea {
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font-size: 15px;
+  background: #ffffff;
+  outline: none;
+}
+
+.registration-form input:focus,
+.registration-form select:focus,
+.registration-form textarea:focus {
+  border-color: #0d9488;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
+}
+
+.registration-form input[readonly] {
+  background: #f1f5f9;
+  cursor: not-allowed;
+}
+
+.registration-form button {
+  width: 100%;
+  padding: 14px;
+  background: #0d9488;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.registration-form button:hover {
+  background: #0f766e;
+}
+
+.team-member {
+  padding: 18px;
+  margin: 15px 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.team-member h4 {
+  margin-bottom: 12px;
+  color: #334155;
+}
+
+
+/* =========================================
+   10. CONTACT PAGE
+========================================= */
+
+.contact-container {
+  min-height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 550px;
+  padding: 35px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.07);
+}
+
+/* Name, Email and Message: identical outer widths */
+
+.contact-form input,
+.contact-form textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 13px;
+  margin-bottom: 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font-size: 15px;
+  background: #ffffff;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #0d9488;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
+}
+
+.contact-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+
+/* =========================================
+   11. FOOTER
+========================================= */
+
+.footer {
+  width: 100%;
+  margin-top: 50px;
+  background: #172554;
+  color: #ffffff;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 55px 25px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-company h2 {
+  color: #5eead4;
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.footer-container h3 {
+  margin-bottom: 18px;
+  font-size: 18px;
+  color: #5eead4;
+}
+
+.footer-company p {
+  margin-bottom: 12px;
+  color: #cbd5e1;
+}
+
+.footer-company a {
+  color: #5eead4;
+}
+
+.footer-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-navigation a {
+  color: #cbd5e1;
+  transition: color 0.2s;
+}
+
+.footer-navigation a:hover {
+  color: #5eead4;
+}
+
+.footer-social a {
+  color: #cbd5e1;
+  margin-right: 12px;
+}
+
+.footer-bottom {
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+
+/* =========================================
+   12. RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .navbar-links {
+    gap: 18px;
+  }
+
+  .hero-section h1 {
+    font-size: 40px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/* =========================================
+   13. RESPONSIVE MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+  .navbar-container {
+    min-height: 65px;
+    padding: 0 18px;
+  }
+
+  .navbar-logo {
+    font-size: 22px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar-links a,
+  .navbar-links button {
+    display: block;
+    width: 100%;
+    padding: 13px 10px;
+    text-align: left;
+  }
+
+  .hero-section {
+    min-height: 400px;
+    padding: 75px 20px;
+  }
+
+  .hero-section h1 {
+    font-size: 32px;
+  }
+
+  .hero-section p {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .hero-buttons a {
+    text-align: center;
+  }
+
+  .event-highlights,
+  .about-section,
+  .timeline-section,
+  .prizes-section {
+    padding: 45px 20px;
+    margin: 18px 12px;
+  }
+
+  .home-page section h2 {
+    font-size: 25px;
+  }
+
+  .signup-container,
+  .login-container,
+  .otp-container,
+  .contact-container {
+    padding: 30px 15px;
+  }
+
+  .signup-form,
+  .login-form,
+  .otp-form,
+  .contact-form {
+    padding: 25px 20px;
+  }
+
+  .registration-container {
+    padding: 25px 12px;
+  }
+
+  .registration-form {
+    padding: 22px 18px;
+  }
+
+  .dashboard-container {
+    padding: 30px 15px;
+  }
+
+  .dashboard-card,
+  .profile-card,
+  .registration-card {
+    padding: 20px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 40px 22px;
+  }
+}
+
+
+/* =========================================
+   14. SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .hero-section h1 {
+    font-size: 27px;
+  }
+
+  .signup-form,
+  .login-form,
+  .otp-form,
+  .contact-form {
+    padding: 20px 15px;
+  }
+
+  .registration-form {
+    padding: 18px 14px;
+  }
+}
+
+
+/* CONTACT MESSAGE WIDTH FIX */
+
+.contact-form textarea,
+.contact-form textarea[name="message"] {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  height: 150px;
+  padding: 13px !important;
+  margin-bottom: 16px;
+  box-sizing: border-box !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 7px !important;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  background: #ffffff;
+  resize: vertical;
+  outline: none;
+}
+
+.about-section {
+  padding: 80px 8%;
+  background: #f8fafc;
+}
+
+.about-container {
+  max-width: 1150px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.section-tag {
+  color: #2563eb;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.about-content h2 {
+  font-size: 36px;
+  margin: 15px 0;
+  color: #0f172a;
+}
+
+.about-content p {
+  color: #64748b;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.about-card {
+  padding: 45px 25px;
+  background: white;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+}
+
+.about-card h3 {
+  color: #2563eb;
+  font-size: 28px;
+}
+
+.about-card p {
+  color: #64748b;
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-content h2 {
+    font-size: 29px;
+  }
+}
