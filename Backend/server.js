@@ -7,9 +7,12 @@ const authRoute=require("./routes/authRoutes")
 const userRoute=require("./routes/userRoutes")
 const hackathonRoute=require("./routes/hackathonRoute")
 
-app.use(cors({
-  origin: "http://localhost:5173"
-}));
+
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL || "http://localhost:5173",
+  })
+);
 
 app.use(express.json());
 app.use("/api/auth",authRoute)
